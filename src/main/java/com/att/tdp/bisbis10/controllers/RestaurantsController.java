@@ -4,7 +4,6 @@ import com.att.tdp.bisbis10.controllers.dtos.RestaurantDTO;
 import com.att.tdp.bisbis10.entities.Restaurant;
 import com.att.tdp.bisbis10.services.RestaurantsService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

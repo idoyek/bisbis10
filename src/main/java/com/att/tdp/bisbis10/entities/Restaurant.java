@@ -22,6 +22,9 @@ public class Restaurant {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Dish> dishes;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Rating> ratings;
+
     public Long getId() {
         return id;
     }
@@ -68,5 +71,13 @@ public class Restaurant {
 
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
     }
 }
