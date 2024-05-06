@@ -1,14 +1,13 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.controllers.dtos.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.RestaurantDTO;
 import com.att.tdp.bisbis10.entities.Restaurant;
-import com.att.tdp.bisbis10.services.RestaurantsService;
+import com.att.tdp.bisbis10.services.restaurants.RestaurantsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/restaurants")
@@ -45,8 +44,8 @@ public class RestaurantsController {
     }
 
     @PutMapping()
-    public ResponseEntity<Void> updateRestaurant(@RequestParam String id, @RequestBody Map<String, Object> updatedInfo){
-        restaurantsService.updateRestaurant(id, updatedInfo);
+    public ResponseEntity<Void> updateRestaurant(@RequestParam String id, @RequestBody RestaurantDTO restaurantDTO){
+        restaurantsService.updateRestaurant(id, restaurantDTO);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

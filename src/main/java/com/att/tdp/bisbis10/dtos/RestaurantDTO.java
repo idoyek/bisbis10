@@ -1,4 +1,4 @@
-package com.att.tdp.bisbis10.controllers.dtos;
+package com.att.tdp.bisbis10.dtos;
 
 import com.att.tdp.bisbis10.entities.Dish;
 

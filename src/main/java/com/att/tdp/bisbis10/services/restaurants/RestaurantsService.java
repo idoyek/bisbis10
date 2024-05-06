@@ -1,14 +1,13 @@
-package com.att.tdp.bisbis10.services;
+package com.att.tdp.bisbis10.services.restaurants;
 
-import com.att.tdp.bisbis10.controllers.dtos.DtoUtils;
-import com.att.tdp.bisbis10.controllers.dtos.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.DtoUtils;
+import com.att.tdp.bisbis10.dtos.RestaurantDTO;
 import com.att.tdp.bisbis10.entities.Restaurant;
 import com.att.tdp.bisbis10.repositories.RestaurantsRepository;
+import com.att.tdp.bisbis10.services.utils.ServicesUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class RestaurantsService implements RestaurantsServiceInterface {
@@ -27,7 +26,8 @@ public class RestaurantsService implements RestaurantsServiceInterface {
     }
 
     public Restaurant getRestaurantById(String id) {
-        return restaurantsRepository.findById(id).get();
+        return restaurantsRepository.findById(id)
+                .orElse(null);
     }
 
     public void createRestaurant(RestaurantDTO restaurantDTO) {
@@ -35,17 +35,21 @@ public class RestaurantsService implements RestaurantsServiceInterface {
         restaurantsRepository.save(restaurant);
     }
 
-    public void updateRestaurant(String id, Map<String, Object> updatedInfo) {
-        Optional<Restaurant> optionalRestaurant = restaurantsRepository.findById(id);
-        if (optionalRestaurant.isPresent()) {
-            Restaurant restaurant = optionalRestaurant.get();
-            UpdateRestaurant.setEntity(restaurant, updatedInfo);
-            restaurantsRepository.save(restaurant);
-        }
+    public void updateRestaurant(String id, RestaurantDTO restaurantDTO) {
+        restaurantsRepository.findById(id)
+                .ifPresentOrElse(restaurant -> {
+                    ServicesUtils.updateRestaurant(restaurant, restaurantDTO);
+                    restaurantsRepository.save(restaurant);
+                    },
+                        ServicesUtils.entityNotFoundException(id)
+        );
     }
 
     public void deleteRestaurant(String id) {
-        Restaurant restaurant = restaurantsRepository.findById(id).get();
-        restaurantsRepository.delete(restaurant);
+        restaurantsRepository.findById(id)
+                .ifPresentOrElse(
+                        restaurantsRepository::delete,
+                        ServicesUtils.entityNotFoundException(id)
+                );
     }
 }

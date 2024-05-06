@@ -44,19 +44,19 @@ public class Restaurant {
         this.name = name;
     }
 
-    public Double getAverage_rating() {
+    public Double getAverageRating() {
         return average_rating;
     }
 
-    public void setAverage_rating(Double average_rating) {
+    public void setAverageRating(Double average_rating) {
         this.average_rating = average_rating;
     }
 
-    public Boolean getIs_kosher() {
+    public Boolean getIsKosher() {
         return is_kosher;
     }
 
-    public void setIs_kosher(Boolean is_kosher) {
+    public void setIsKosher(Boolean is_kosher) {
         this.is_kosher = is_kosher;
     }
 

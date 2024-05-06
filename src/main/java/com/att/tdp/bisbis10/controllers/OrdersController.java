@@ -1,7 +1,7 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.controllers.dtos.OrderDTO;
-import com.att.tdp.bisbis10.services.OrdersService;
+import com.att.tdp.bisbis10.dtos.OrderDTO;
+import com.att.tdp.bisbis10.services.orders.OrdersService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

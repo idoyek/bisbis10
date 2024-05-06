@@ -1,9 +1,11 @@
-package com.att.tdp.bisbis10.controllers.dtos;
+package com.att.tdp.bisbis10.dtos;
 
-import com.att.tdp.bisbis10.entities.Order;
-import com.att.tdp.bisbis10.entities.OrderItem;
-import com.att.tdp.bisbis10.entities.Rating;
-import com.att.tdp.bisbis10.entities.Restaurant;
+import com.att.tdp.bisbis10.dtos.DishDTO;
+import com.att.tdp.bisbis10.dtos.OrderDTO;
+import com.att.tdp.bisbis10.dtos.OrderItemDTO;
+import com.att.tdp.bisbis10.dtos.RatingDTO;
+import com.att.tdp.bisbis10.dtos.RestaurantDTO;
+import com.att.tdp.bisbis10.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +16,24 @@ public class DtoUtils {
         Restaurant restaurant = new Restaurant();
 
         restaurant.setName(restaurantDTO.name());
-        restaurant.setIs_kosher(restaurantDTO.isKosher());
-        restaurant.setAverage_rating(restaurantDTO.averageRating());
+        restaurant.setIsKosher(restaurantDTO.isKosher());
+        restaurant.setAverageRating(restaurantDTO.averageRating());
         restaurant.setCuisines(restaurantDTO.cuisines());
         restaurant.setDishes(restaurantDTO.dishes());
 
         return restaurant;
     }
+
+    public static Dish createDishFromDTO(DishDTO dishDTO) {
+        Dish dish = new Dish();
+
+        dish.setName(dishDTO.name());
+        dish.setDescription(dishDTO.description());
+        dish.setPrice(dishDTO.price());
+
+        return dish;
+    }
+
 
     public static Rating createRatingFromDTO(RatingDTO ratingDTO){
         Rating rating = new Rating();

@@ -1,7 +1,7 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.controllers.dtos.RatingDTO;
-import com.att.tdp.bisbis10.services.RatingsService;
+import com.att.tdp.bisbis10.dtos.RatingDTO;
+import com.att.tdp.bisbis10.services.ratings.RatingsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,4 @@
-package com.att.tdp.bisbis10.controllers.dtos;
-
-import com.att.tdp.bisbis10.entities.OrderItem;
+package com.att.tdp.bisbis10.dtos;
 
 import java.util.List;
 
