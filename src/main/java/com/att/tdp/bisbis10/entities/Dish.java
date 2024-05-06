@@ -2,8 +2,6 @@ package com.att.tdp.bisbis10.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
 @Table(name = "dishes")
 public class Dish {
