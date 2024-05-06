@@ -1,6 +1,6 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.dtos.DishDTO;
+import com.att.tdp.bisbis10.dtos.dishes.DishDTO;
 import com.att.tdp.bisbis10.entities.Dish;
 import com.att.tdp.bisbis10.services.dishes.DishesService;
 import org.springframework.http.HttpStatus;

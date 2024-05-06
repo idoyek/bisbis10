@@ -1,4 +1,4 @@
-package com.att.tdp.bisbis10.dtos;
+package com.att.tdp.bisbis10.dtos.restaurants;
 
 import com.att.tdp.bisbis10.entities.Dish;
 

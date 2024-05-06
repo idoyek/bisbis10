@@ -1,13 +1,15 @@
 package com.att.tdp.bisbis10.services.restaurants;
 
-import com.att.tdp.bisbis10.dtos.DtoUtils;
-import com.att.tdp.bisbis10.dtos.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.utils.DtoUtils;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantResponseDTO;
 import com.att.tdp.bisbis10.entities.Restaurant;
 import com.att.tdp.bisbis10.repositories.RestaurantsRepository;
 import com.att.tdp.bisbis10.services.utils.ServicesUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RestaurantsService implements RestaurantsServiceInterface {
@@ -17,16 +19,22 @@ public class RestaurantsService implements RestaurantsServiceInterface {
         this.restaurantsRepository = restaurantsRepository;
     }
 
-    public List<Restaurant> getAllRestaurants() {
-        return restaurantsRepository.findAll();
+    public List<RestaurantResponseDTO> getAllRestaurants() {
+        return restaurantsRepository.findAll().stream()
+                .map(DtoUtils::createRestaurantResponseDTOFromRestaurant)
+                .collect(Collectors.toList());
     }
 
-    public List<Restaurant> getRestaurantsByCuisine(String cuisine) {
-        return restaurantsRepository.findRestaurantsByCuisine(cuisine);
+    public List<RestaurantResponseDTO> getRestaurantsByCuisine(String cuisine) {
+        return restaurantsRepository.findRestaurantsByCuisine(cuisine)
+                .stream()
+                .map(DtoUtils::createRestaurantResponseDTOFromRestaurant)
+                .collect(Collectors.toList());
     }
 
-    public Restaurant getRestaurantById(String id) {
+    public RestaurantResponseDTO getRestaurantById(String id) {
         return restaurantsRepository.findById(id)
+                .map(DtoUtils::createRestaurantResponseDTOFromRestaurant)
                 .orElse(null);
     }
 

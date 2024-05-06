@@ -1,7 +1,7 @@
 package com.att.tdp.bisbis10.services.ratings;
 
-import com.att.tdp.bisbis10.dtos.DtoUtils;
-import com.att.tdp.bisbis10.dtos.RatingDTO;
+import com.att.tdp.bisbis10.dtos.utils.DtoUtils;
+import com.att.tdp.bisbis10.dtos.ratings.RatingDTO;
 import com.att.tdp.bisbis10.entities.Rating;
 import com.att.tdp.bisbis10.repositories.RestaurantsRepository;
 import com.att.tdp.bisbis10.services.utils.ServicesUtils;

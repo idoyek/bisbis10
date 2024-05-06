@@ -1,6 +1,6 @@
 package com.att.tdp.bisbis10.services.dishes;
 
-import com.att.tdp.bisbis10.dtos.DishDTO;
+import com.att.tdp.bisbis10.dtos.dishes.DishDTO;
 import com.att.tdp.bisbis10.entities.Dish;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.dtos.RestaurantDTO;
-import com.att.tdp.bisbis10.entities.Restaurant;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantResponseDTO;
 import com.att.tdp.bisbis10.services.restaurants.RestaurantsService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,20 +20,20 @@ public class RestaurantsController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Restaurant>> getAllRestaurants() {
-        List<Restaurant> restaurants = restaurantsService.getAllRestaurants();
+    public ResponseEntity<List<RestaurantResponseDTO>> getAllRestaurants() {
+        List<RestaurantResponseDTO> restaurants = restaurantsService.getAllRestaurants();
         return ResponseEntity.ok(restaurants);
     }
 
     @GetMapping(params = "cuisine")
-    public ResponseEntity<List<Restaurant>> getRestaurantsByCuisine(@RequestParam String cuisine) {
-        List<Restaurant> restaurants = restaurantsService.getRestaurantsByCuisine(cuisine);
+    public ResponseEntity<List<RestaurantResponseDTO>> getRestaurantsByCuisine(@RequestParam String cuisine) {
+        List<RestaurantResponseDTO> restaurants = restaurantsService.getRestaurantsByCuisine(cuisine);
         return ResponseEntity.ok(restaurants);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Restaurant> getRestaurantsById(@PathVariable String id) {
-        Restaurant restaurant = restaurantsService.getRestaurantById(id);
+    public ResponseEntity<RestaurantResponseDTO> getRestaurantsById(@PathVariable String id) {
+        RestaurantResponseDTO restaurant = restaurantsService.getRestaurantById(id);
         return ResponseEntity.ok(restaurant);
     }
 

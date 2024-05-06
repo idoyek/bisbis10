@@ -1,7 +1,7 @@
 package com.att.tdp.bisbis10.services.dishes;
 
-import com.att.tdp.bisbis10.dtos.DishDTO;
-import com.att.tdp.bisbis10.dtos.DtoUtils;
+import com.att.tdp.bisbis10.dtos.dishes.DishDTO;
+import com.att.tdp.bisbis10.dtos.utils.DtoUtils;
 import com.att.tdp.bisbis10.entities.Dish;
 import com.att.tdp.bisbis10.entities.Restaurant;
 import com.att.tdp.bisbis10.repositories.RestaurantsRepository;

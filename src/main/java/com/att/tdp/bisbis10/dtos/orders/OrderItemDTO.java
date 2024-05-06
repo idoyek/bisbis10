@@ -1,4 +1,4 @@
-package com.att.tdp.bisbis10.dtos;
+package com.att.tdp.bisbis10.dtos.orders;
 
 public record OrderItemDTO(Integer dishId, Integer amount) {
 }

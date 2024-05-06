@@ -1,6 +1,7 @@
 package com.att.tdp.bisbis10.controllers;
 
-import com.att.tdp.bisbis10.dtos.OrderDTO;
+import com.att.tdp.bisbis10.dtos.orders.OrderDTO;
+import com.att.tdp.bisbis10.dtos.orders.OrderIdResponseDTO;
 import com.att.tdp.bisbis10.services.orders.OrdersService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +19,9 @@ public class OrdersController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> addOrder(@RequestBody OrderDTO orderDTO){
-        String orderId = ordersService.addOrder(orderDTO);
-        return ResponseEntity.ok(orderId);
+    public ResponseEntity<OrderIdResponseDTO> addOrder(@RequestBody OrderDTO orderDTO){
+        OrderIdResponseDTO orderIdResponseDTO = ordersService.addOrder(orderDTO);
+        return ResponseEntity.ok(orderIdResponseDTO);
     }
 
 }

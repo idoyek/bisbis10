@@ -1,10 +1,11 @@
-package com.att.tdp.bisbis10.dtos;
+package com.att.tdp.bisbis10.dtos.utils;
 
-import com.att.tdp.bisbis10.dtos.DishDTO;
-import com.att.tdp.bisbis10.dtos.OrderDTO;
-import com.att.tdp.bisbis10.dtos.OrderItemDTO;
-import com.att.tdp.bisbis10.dtos.RatingDTO;
-import com.att.tdp.bisbis10.dtos.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.dishes.DishDTO;
+import com.att.tdp.bisbis10.dtos.orders.OrderDTO;
+import com.att.tdp.bisbis10.dtos.orders.OrderItemDTO;
+import com.att.tdp.bisbis10.dtos.ratings.RatingDTO;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantDTO;
+import com.att.tdp.bisbis10.dtos.restaurants.RestaurantResponseDTO;
 import com.att.tdp.bisbis10.entities.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,18 @@ public class DtoUtils {
         restaurant.setDishes(restaurantDTO.dishes());
 
         return restaurant;
+    }
+
+    public static RestaurantResponseDTO createRestaurantResponseDTOFromRestaurant(Restaurant restaurant) {
+        return new RestaurantResponseDTO(
+                restaurant.getId(),
+                restaurant.getName(),
+                restaurant.getAverageRating(),
+                restaurant.getIsKosher(),
+                restaurant.getCuisines(),
+                restaurant.getDishes(),
+                restaurant.getOrders()
+        );
     }
 
     public static Dish createDishFromDTO(DishDTO dishDTO) {
